@@ -1,50 +1,77 @@
-# Welcome to your Expo app 👋
+# Opindex Wallet
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A non-custodial Solana wallet built with React Native and Expo. Swap tokens, manage your portfolio, launch tokens, and interact with liquidity pools — all from your mobile device.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Wallet Management** — Create, import, and manage multiple Solana wallets with BIP39 seed phrase support
+- **Token Swaps** — Swap SPL tokens with real-time price charts and slippage controls
+- **Portfolio Tracking** — View balances, token holdings, and transaction history at a glance
+- **Launchpad** — Create and launch new tokens directly from the app
+- **Liquidity Pools** — Browse, create, and manage liquidity pools
+- **Send & Receive** — Transfer SOL and SPL tokens with QR code support and a saved recipients list
+- **Biometric Auth** — Secure your wallet with Face ID / fingerprint via Expo SecureStore
+- **Push Notifications** — Get notified about transactions and updates via Firebase Cloud Messaging
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+| Layer | Technology |
+|-------|-----------|
+| Framework | React Native 0.81 + Expo SDK 54 |
+| Navigation | Expo Router (file-based routing) |
+| State | Zustand |
+| Data Fetching | TanStack React Query |
+| Blockchain | @solana/web3.js, tweetnacl, bip39 |
+| Forms | React Hook Form + Zod |
+| Storage | Expo SecureStore, AsyncStorage |
+| Notifications | Firebase Cloud Messaging |
 
-   ```bash
-   npx expo start
-   ```
+## Project Structure
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+app/                  # Screens (Expo Router file-based routing)
+  (auth)/             #   Onboarding & wallet setup flow
+  (tabs)/             #   Main tab screens (portfolio, swap, launchpad, settings)
+  wallet/             #   Wallet management screens
+  token/              #   Token details & creation
+  pool/               #   Liquidity pool screens
+src/
+  components/         # Reusable UI and feature components
+  hooks/              # Custom hooks (queries, common utilities)
+  services/           # API clients and blockchain services
+  stores/             # Zustand state stores
+  styles/             # Shared styles and theme
+  utils/              # Helpers and constants
+  config/             # Environment and feature config
+  context/            # React context providers
+  providers/          # App-level providers
+  types/              # TypeScript type definitions
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Getting Started
 
-## Learn more
+### Prerequisites
 
-To learn more about developing your project with Expo, look at the following resources:
+- Node.js 18+
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
+- iOS Simulator (macOS) or Android Emulator
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Install & Run
 
-## Join the community
+```bash
+# Install dependencies
+npm install
 
-Join our community of developers creating universal apps.
+# Start the Expo dev server
+npx expo start
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# Run on iOS
+npx expo run:ios
+
+# Run on Android
+npx expo run:android
+```
+
+## License
+
+This project is released as open source. See the repository for license details.
